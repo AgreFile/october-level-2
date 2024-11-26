@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/applogger/logger/models/logscontroller/columns.yaml
+list: $/applogger/logger/models/log/columns.yaml
 
 # Model Class name
-modelClass: AppLogger\Logger\Models\LogsController
+modelClass: AppLogger\Logger\Models\Log
 
 # List Title
-title: Manage Logs Controllers
+title: Manage Logs
 
 # Link URL for each record
-recordUrl: applogger/logger/logscontroller/update/:id
+recordUrl: applogger/logger/logs/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

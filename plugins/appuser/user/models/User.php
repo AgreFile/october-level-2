@@ -1,6 +1,7 @@
 <?php namespace AppUser\User\Models;
 
 use Model;
+use Hash;
 
 /**
  * User Model
@@ -19,6 +20,12 @@ class User extends Model
     public $hasMany = [
         'logs' => \AppLogger\Logger\Models\Log::class
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        // Hash the password only if it's not already hashed
+        $this->attributes['password'] = Hash::make($value);
+    }
 
     /**
      * @var array rules for validation

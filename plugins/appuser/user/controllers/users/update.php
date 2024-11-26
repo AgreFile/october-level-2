@@ -13,6 +13,10 @@
             <?= $this->formRender() ?>
         </div>
 
+        <div class="flex-grow-1">
+            <?= $this->relationRender("logs") ?>
+        </div>
+
         <div class="form-buttons">
             <div data-control="loader-container">
                 <button
@@ -41,7 +45,6 @@
                     data-request-message="<?= __("Deleting :name...", ['name' => $formRecordName]) ?>"
                     data-request-confirm="<?= __("Delete this record?") ?>">
                 </button>
-                <a class="btn btn-primary" href="../logs/<?= $this->vars["formModel"]["id"] ?>">Show Logs</a>
                 <span class="btn-text">
                     <span class="button-separator"><?= __("or") ?></span>
                     <a

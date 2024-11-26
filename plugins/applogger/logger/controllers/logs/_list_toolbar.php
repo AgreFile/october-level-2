@@ -1,9 +1,9 @@
 <div data-control="toolbar loader-container">
     <a
-        href="<?= Backend::url('applogger/logger/logscontroller/create') ?>"
+        href="<?= Backend::url('applogger/logger/logs/create') ?>"
         class="btn btn-primary">
         <i class="icon-plus"></i>
-        <?= __("New :name", ['name' => 'Logs Controller']) ?>
+        <?= __("New :name", ['name' => 'Log']) ?>
     </a>
 
     <div class="toolbar-divider"></div>

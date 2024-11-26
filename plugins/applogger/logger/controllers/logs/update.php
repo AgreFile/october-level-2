@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="<?= Backend::url('applogger/logger/logscontroller') ?>">Logs Controller</a></li>
+        <li class="breadcrumb-item"><a href="<?= Backend::url('applogger/logger/logs') ?>">Logs</a></li>
         <li class="breadcrumb-item active" aria-current="page"><?= e($this->pageTitle) ?></li>
     </ol>
 <?php Block::endPut() ?>
@@ -44,7 +44,7 @@
                 <span class="btn-text">
                     <span class="button-separator"><?= __("or") ?></span>
                     <a
-                        href="<?= Backend::url('applogger/logger/logscontroller') ?>"
+                        href="<?= Backend::url('applogger/logger/logs') ?>"
                         class="btn btn-link p-0">
                         <?= __("Cancel") ?>
                     </a>
@@ -61,7 +61,7 @@
     </p>
     <p>
         <a
-            href="<?= Backend::url('applogger/logger/logscontroller') ?>"
+            href="<?= Backend::url('applogger/logger/logs') ?>"
             class="btn btn-default">
             <?= __("Return to List") ?>
         </a>

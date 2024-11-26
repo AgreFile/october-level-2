@@ -6,6 +6,13 @@ columns:
     id:
         label: ID
         searchable: true
-    :
-        label: ID
+    user_id:
+        label: User Id
+        searchable: true
+    created_at:
+        label: Created at
+        searchable: true
+    isLate:
+        label: isLate
+        type: switch
         searchable: true

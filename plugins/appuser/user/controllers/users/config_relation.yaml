@@ -1,0 +1,13 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+logs:
+    label: Logs
+    view:
+        list: $/applogger/logger/models/log/columns.yaml
+        form: $/applogger/logger/models/log/fields.yaml
+        toolbarButtons: create|delete
+        recordsPerPage: 20
+    manage:
+        form: $/applogger/logger/models/log/fields.yaml

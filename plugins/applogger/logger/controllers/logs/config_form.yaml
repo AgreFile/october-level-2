@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: Logs Controller
+name: Log
 
 # Model Form Field configuration
-form: $/applogger/logger/models/logscontroller/fields.yaml
+form: $/applogger/logger/models/log/fields.yaml
 
 # Model Class name
-modelClass: AppLogger\Logger\Models\LogsController
+modelClass: AppLogger\Logger\Models\Log
 
 # Default redirect location
-defaultRedirect: applogger/logger/logscontroller
+defaultRedirect: applogger/logger/logs
 
 # Create page
 create:
     title: backend::lang.form.create_title
-    redirect: applogger/logger/logscontroller/update/:id
-    redirectClose: applogger/logger/logscontroller
+    redirect: applogger/logger/logs/update/:id
+    redirectClose: applogger/logger/logs
 
 # Update page
 update:
     title: backend::lang.form.update_title
-    redirect: applogger/logger/logscontroller
-    redirectClose: applogger/logger/logscontroller
+    redirect: applogger/logger/logs
+    redirectClose: applogger/logger/logs
 
 # Preview page
 preview:

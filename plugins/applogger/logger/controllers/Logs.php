@@ -4,11 +4,11 @@ use BackendMenu;
 use Backend\Classes\Controller;
 
 /**
- * Logs Controller Backend Controller
+ * Logs Backend Controller
  *
  * @link https://docs.octobercms.com/3.x/extend/system/controllers.html
  */
-class LogsController extends Controller
+class Logs extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,
@@ -28,7 +28,7 @@ class LogsController extends Controller
     /**
      * @var array required permissions
      */
-    public $requiredPermissions = ['applogger.logger.logscontroller'];
+    public $requiredPermissions = ['applogger.logger.logs'];
 
     /**
      * __construct the controller
@@ -37,11 +37,6 @@ class LogsController extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('AppLogger.Logger', 'logger', 'logscontroller');
-    }
-    
-    public function index()
-    {
-        return 'INDEX page';
+        BackendMenu::setContext('AppLogger.Logger', 'logger', 'logs');
     }
 }

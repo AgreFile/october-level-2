@@ -10,7 +10,7 @@ fields:
         label: username
         disabled: false
     password:
-        label: password
+        label: Password, !!!WARNING!!! on creation or update the passwords will be automatically hashed, meaning you wont be able to see what it was originally
         disabled: false
     token:
         label: token

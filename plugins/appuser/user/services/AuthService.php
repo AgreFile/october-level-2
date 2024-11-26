@@ -15,7 +15,7 @@ class AuthService
             'iss' => "AppUser/User", // Issuer
             'sub' => $userId, // Subject (user ID)
             'iat' => time(), // Issued at
-            'exp' => time() + 3600 // Expiration (1 hour)
+            'exp' => time() + 3600 // Expiration
         ];
 
         $JwtToken = JWT::encode($JwtTokenPayload, env("JWT_SECRET"), "HS256");
