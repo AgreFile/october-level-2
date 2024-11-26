@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Logs Controller
+
+# Model Form Field configuration
+form: $/applogger/logger/models/logscontroller/fields.yaml
+
+# Model Class name
+modelClass: AppLogger\Logger\Models\LogsController
+
+# Default redirect location
+defaultRedirect: applogger/logger/logscontroller
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: applogger/logger/logscontroller/update/:id
+    redirectClose: applogger/logger/logscontroller
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: applogger/logger/logscontroller
+    redirectClose: applogger/logger/logscontroller
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

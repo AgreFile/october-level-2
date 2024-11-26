@@ -1,0 +1,10 @@
+<h3>Logs for User ID: <?= $userId ?> </h3>
+
+<ul>
+    <?php foreach($logs->get()->reverse() as $key => $log): ?>
+        <li> <?= $key + 1 ?>. Checkedout at <?= $log->created_at ?> || Were they late?: <?= $log->isLate ? "yes" : "no" ?> </li>
+    <?php endforeach; ?>
+</ul>
+
+<a class="btn btn-primary" href="../update/<?= $userId ?>" > Go Back </a>
+<a class="btn btn-primary" href=".." > Close </a>

@@ -1,0 +1,13 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>October CMS - {{ this.page.meta_title ?: placeholder('pageTitle') }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+    </head>
+    <body class="{{ 'page-'~this.page.id }}">
+
+    </body>
+</html>

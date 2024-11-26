@@ -1,0 +1,17 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: ID
+        disabled: true
+    username:
+        label: username
+        disabled: false
+    password:
+        label: password
+        disabled: false
+    token:
+        label: token
+        disabled: true
