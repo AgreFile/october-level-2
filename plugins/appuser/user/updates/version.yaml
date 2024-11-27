@@ -2,6 +2,7 @@ v1.0.1: First version of User
 v1.0.2: 
   - create_users_table.php
 v1.0.3:
-  - add logs to the table
-v1.0.4:
   - add default to token column
+v1.0.4:
+  - drop foreign key in down
+# Nepoužíval som moc toto takže je možné že som niečo vynechal. Mám aj davať nove verzie keď zmenim niečo v plugine alebo toto slúži skôr iba pre migráciu?

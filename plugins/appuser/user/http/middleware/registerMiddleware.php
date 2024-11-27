@@ -5,21 +5,22 @@ use Input;
 use Closure;
 use Illuminate\Http\Request;
 use AppUser\User\Models\User;
+use Exception;
 
 class RegisterMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
         if (User::where("username", Input::get("username"))->get()->isNotEmpty()) {
-            return response()->json(['error' => 'user_exists'], 400);
+            throw new Exception("User exists", 400);
         }
 
         if (!ctype_alnum(Input::get("username"))) {
-            return response()->json(['error' => 'username_not_alphanumeric'], 400);
+            throw new Exception("user not alphanumeric", 400);
         }
 
         if (!Input::get("password")) {
-            return response()->json(['error' => 'invalid_password'], 400);
+            throw new Exception("invalid password", 400);
         }
 
         return $next($request);

@@ -6,6 +6,7 @@ use Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Appuser\User\Services\AuthService;
+use Exception;
 
 class AuthMiddleware
 {
@@ -14,13 +15,11 @@ class AuthMiddleware
         $tokenCookie = Cookie::get("token");
 
         if (!$tokenCookie) {
-            Log::info("Empty token cookie");
-            return response()->json(["error" => "not_logged_in"],401);
+            throw new Exception("Not logged in", 401);
         }
 
         if (!AuthService::ValidateToken($tokenCookie)) {
-            Log::info("Invalid token");
-            return response()->json(["error" => "invalid_token"],401);
+            throw new Exception("Invalid token", 401);
         }
 
         return $next($request);
