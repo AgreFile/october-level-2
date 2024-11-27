@@ -18,6 +18,7 @@ return new class extends Migration
     {
         Schema::create('applogger_logger_logs', function(Blueprint $table) {
             $table->id();
+            // REVIEW - Tip - máš tu 2 veci, 'unsignedBigInteger' a 'foreign', dajú sa skombinovať do jednej, a to cez ->foreignIdFor(), pozri docs
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
             $table->boolean("isLate");

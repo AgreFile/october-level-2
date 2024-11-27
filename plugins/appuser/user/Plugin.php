@@ -8,7 +8,7 @@ use System\Classes\PluginBase;
  *
  * @link https://docs.octobercms.com/3.x/extend/system/plugins.html
  */
-class Plugin extends PluginBase
+class Plugin extends PluginBase // REVIEW - Tu by sa to dalo trochu upratať, čiže všetky funkcie čo nepoužívaš / nič nerobia môžeš odstrániť
 {
     /**
      * pluginDetails about this plugin.

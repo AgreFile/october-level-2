@@ -18,6 +18,8 @@ class LogsController extends Controller
         $NewLog->isLate = $islate;
         $NewLog->save();
 
+        /* REVIEW - Tu úplne nerozumiem prečo to robíš takto '$NewLog->get()[$NewLog->id-1]', po prvé by si určite nemal interagovať s ID že odčítaš, to nie je spoľahlivé
+        po druhé čo sa vlastne snažíš vrátiť v tomto response? Malo by sa to dať urobiť jednoduchšie, ak sa snažíš vrátiť $NewLog tak stačí "return ['log' => $NewLog];" */
         return response()->json(["log" => $NewLog->get()[$NewLog->id-1]],200);
     }
 
@@ -25,6 +27,7 @@ class LogsController extends Controller
     {
         $userData = AuthService::get_user_with_cookie();
 
+        // REVIEW - Tu taktiež, malo by to ísť jednoduchšie, napr. "return ['logs' => $user->logs];"
         return response()->json(["logs" => $userData->get()[0]->logs],200);
     }
 }

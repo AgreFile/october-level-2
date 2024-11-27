@@ -10,6 +10,7 @@ use Hash;
 
 class LoginMiddleware
 {
+    // REVIEW - Tu platí to isté čo som písal do RegisterMiddleware.php
     public function handle(Request $request, Closure $next)
     {
         if (User::where("username", $_REQUEST["username"])->get()->isEmpty()) {

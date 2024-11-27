@@ -7,6 +7,10 @@ use Firebase\JWT\Key;
 use Firebase\JWT\ExpiredException;
 use AppUser\User\Models\User;
 
+/* REVIEW - Celkom cool že si si reálne implementoval vlastnú JWT logiku na expiráciu a pod. takže to je len + pre teba :DD
+Keďže toto až tak nesúvisí so zadaním a OCMS tak ti to tu nebudem vypisovať všetko čo by sa dalo zmeniť, len spomeniem 1 drobnosť
+Keď inde v projekte používaš camelCase pre funkcie, tak aj tu by bolo dobré použiť camelCase (nie snake_case) :D
+Ale kebyže máš otázky k JWT tak kľudne daj vedieť */
 class AuthService
 {
     public static function create_new_jwt_token(int $userId)

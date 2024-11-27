@@ -8,7 +8,7 @@ use System\Classes\PluginBase;
  *
  * @link https://docs.octobercms.com/3.x/extend/system/plugins.html
  */
-class Plugin extends PluginBase
+class Plugin extends PluginBase // REVIEW - Tu platí to isté čo som písal do AppUser Plugin.php
 {
     /**
      * pluginDetails about this plugin.
