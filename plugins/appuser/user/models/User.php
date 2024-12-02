@@ -11,6 +11,7 @@ use Hash;
 class User extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Hashable;
 
     /**
      * @var string table name
@@ -22,14 +23,13 @@ class User extends Model
     ];
 
     // REVIEW - Tip - Tento spôsob ako to robíš je v pohode, ale dá sa to aj cez 'hashable' attribute, pozri docs
-    public function setPasswordAttribute($value)
-    {
-        // Hash the password only if it's not already hashed
-        $this->attributes['password'] = Hash::make($value);
-    }
+    protected $hashable = ["password"];
 
     /**
      * @var array rules for validation
      */
-    public $rules = [];
+    public $rules = [
+        'password' => ['required:create'],
+        'username' => ['required:create', "between:3,32", "alpha_dash", "unique"],
+    ];
 }

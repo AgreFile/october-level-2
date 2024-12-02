@@ -6,7 +6,7 @@ use Cookie;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use AppUser\User\Services\AuthService;
-use Input;
+// use Input;
 use Response;
 
 class UsersController extends Controller
@@ -14,8 +14,8 @@ class UsersController extends Controller
     public function registerUser()
     {
         $NewUser = new User();
-        $NewUser->username = Input::get("username"); // REVIEW - dá sa to aj takto "input('username')" a máš o jeden import menej :DD
-        $NewUser->password = Hash::make(Input::get("password")); // REVIEW - Ak by si toto robil cez 'hashable' ako som spomínal v User.php, tak tu nemusíš hashovať
+        $NewUser->username = input("username"); // zmenene  REVIEW - dá sa to aj takto "input('username')" a máš o jeden import menej :DD
+        $NewUser->password = input("password"); // zmenene  REVIEW - Ak by si toto robil cez 'hashable' ako som spomínal v User.php, tak tu nemusíš hashovať
 
         $NewUser->token = "";// token gets updated in AuthService
         $NewUser->save();
@@ -28,10 +28,10 @@ class UsersController extends Controller
 
     public function loginUser()
     {
-        // REVIEW - Lepšie je použiť ->first() ako ->get(), tým pádom nižšie nemusíš robiť '$UserQuery[0]' lebo namiesto array sa ti vráti rovno objekt
-        $UserQuery = User::where("username", Input::get("username"))->get();
+        // zmenene  REVIEW - Lepšie je použiť ->first() ako ->get(), tým pádom nižšie nemusíš robiť '$UserQuery[0]' lebo namiesto array sa ti vráti rovno objekt
+        $UserQuery = User::where("username", input("username"))->first();
 
-        $JwtToken = AuthService::create_new_jwt_token($UserQuery[0]->id);
+        $JwtToken = AuthService::create_new_jwt_token($UserQuery->id);
 
         $response = Response::make();
         return $response->withCookie('token', $JwtToken, 3600, "/", null, true, true);

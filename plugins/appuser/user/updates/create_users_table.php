@@ -21,7 +21,7 @@ return new class extends Migration
             $table->id();
             $table->string("username");
             $table->string("password");
-            $table->string("token",256)->default(""); // REVIEW - Tip - Väčšinou je lepšie použiť ->nullable() ako ->default("")
+            $table->string("token",256)->nullable(); // REVIEW - Tip - Väčšinou je lepšie použiť ->nullable() ako ->default("")
             $table->timestamps();
         });
     }

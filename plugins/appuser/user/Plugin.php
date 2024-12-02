@@ -22,57 +22,11 @@ class Plugin extends PluginBase // REVIEW - Tu by sa to dalo trochu upratať, č
             'icon' => 'icon-leaf'
         ];
     }
-
-    /**
-     * register method, called when the plugin is first registered.
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * boot method, called right before the request route.
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * registerComponents used by the frontend.
-     */
-    public function registerComponents()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'AppUser\User\Components\MyComponent' => 'myComponent',
-        ];
-    }
-
-    /**
-     * registerPermissions used by the backend.
-     */
-    public function registerPermissions()
-    {
-        return []; // Remove this line to activate
-
-        return [
-            'appuser.user.some_permission' => [
-                'tab' => 'User',
-                'label' => 'Some permission'
-            ],
-        ];
-    }
-
     /**
      * registerNavigation used by the backend.
      */
     public function registerNavigation()
     {
-        // return []; // Remove this line to activate
-
         return [
             'user' => [
                 'label' => 'Users',
