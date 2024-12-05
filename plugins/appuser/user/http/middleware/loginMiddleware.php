@@ -10,15 +10,15 @@ use Hash;
 
 class LoginMiddleware
 {
-    // REVIEW - Tu platí to isté čo som písal do RegisterMiddleware.php
     public function handle(Request $request, Closure $next)
     {
-        if (User::where("username", $_REQUEST["username"])->get()->isEmpty()) {
+        $UserQuery = User::where("username", $request["username"])->first();
+
+        if (!$UserQuery) {
             throw new Exception("User doesnt exist",400);
         }
-        $UserQuery = User::where("username", Input::get("username"));
 
-        if (!Hash::check(Input::get("password"), $UserQuery->get()[0]->password)) {
+        if (!Hash::check(Input::get("password"), $UserQuery->password)) {
             throw new Exception("Incorrect password",400);
         }
 

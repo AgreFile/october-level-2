@@ -12,7 +12,6 @@ Route::group(
     function () {
         Route::post("register", [UsersController::class, "registerUser"])->middleware(RegisterMiddleware::class);
         Route::post("login", [UsersController::class, "loginUser"])->middleware(LoginMiddleware::class);
-        Route::get("test", [UsersController::class, "test"])->middleware(AuthMiddleware::class);
         Route::post("logout", [UsersController::class, "logOut"]);
     }
 );

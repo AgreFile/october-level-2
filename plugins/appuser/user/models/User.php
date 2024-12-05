@@ -22,7 +22,6 @@ class User extends Model
         'logs' => \AppLogger\Logger\Models\Log::class
     ];
 
-    // REVIEW - Tip - Tento spôsob ako to robíš je v pohode, ale dá sa to aj cez 'hashable' attribute, pozri docs
     protected $hashable = ["password"];
 
     /**

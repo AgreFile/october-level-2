@@ -1,4 +1,5 @@
-<?php namespace AppLogger\Logger\Updates;
+<?php
+namespace AppLogger\Logger\Updates;
 
 use Schema;
 use October\Rain\Database\Schema\Blueprint;
@@ -9,25 +10,24 @@ use AppUser\User\Models\User;
  *
  * @link https://docs.octobercms.com/3.x/extend/database/structure.html
  */
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * up builds the migration
      */
     public function up()
     {
-        Schema::create('applogger_logger_logs', function(Blueprint $table) {
-            $table->id();
-            // REVIEW - Tip - máš tu 2 veci, 'unsignedBigInteger' a 'foreign', dajú sa skombinovať do jednej, a to cez ->foreignIdFor(), pozri docs
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->timestamps();
-            $table->boolean("isLate");
-            $table
-                ->foreign('user_id')
-                ->references('id')
-                ->on('appuser_user_users')
-                ->onDelete('cascade');
-        });
+        if (!Schema::hasTable("applogger_logger_logs")) {
+            Schema::create('applogger_logger_logs', function (Blueprint $table) {
+                $table->id();
+                $table
+                    ->foreignIdFor(User::class)
+                    ->nullable()
+                    ->constrained("appuser_user_users")
+                    ->cascadeOnDelete();
+                $table->timestamps();
+                $table->boolean("isLate");
+            });
+        }
     }
 
     /**
