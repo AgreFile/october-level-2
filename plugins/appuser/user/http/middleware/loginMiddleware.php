@@ -9,16 +9,18 @@ use Input;
 use Hash;
 
 class LoginMiddleware
-{
+{   
     public function handle(Request $request, Closure $next)
     {
+        // REVIEW - Tu platí to isté čo som písal do RegisterMiddleware.php
+
         $UserQuery = User::where("username", $request["username"])->first();
 
         if (!$UserQuery) {
             throw new Exception("User doesnt exist",400);
         }
 
-        if (!Hash::check(Input::get("password"), $UserQuery->password)) {
+        if (!Hash::check($request["password"], $UserQuery->password)) {
             throw new Exception("Incorrect password",400);
         }
 
