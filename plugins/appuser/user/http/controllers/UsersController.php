@@ -4,6 +4,8 @@ namespace AppUser\User\Http\Controllers;
 use AppUser\User\Models\User;
 use Illuminate\Routing\Controller;
 use AppUser\User\Services\AuthService;
+use Exception;
+use Hash;
 // use Input;
 use Response;
 
@@ -26,6 +28,16 @@ class UsersController extends Controller
 
     public function loginUser()
     {
+        $UserQuery = User::where("username", input("username"))->first();
+
+        if (!$UserQuery) {
+            throw new Exception("User doesnt exist",400);
+        }
+
+        if (!Hash::check(input("password"), $UserQuery->password)) {
+            throw new Exception("Incorrect password",400);
+        }
+
         $UserQuery = User::where("username", input("username"))->first();
 
         $JwtToken = AuthService::create_new_jwt_token($UserQuery->id);
